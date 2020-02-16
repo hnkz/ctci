@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Node.h"
 #include <unordered_map>
+#include <stack>
 
 Node::~Node() {
     clean();
@@ -146,4 +147,35 @@ Node* addNode(Node *n1, Node *n2) {
     }
 
     return result;
+}
+
+int Node::length() {
+    if(next == nullptr) {
+        return 1;
+    }
+    return next->length() + 1;
+}
+
+bool Node::isBatch() {
+    Node *start1 = this;
+    Node *start2 = this;
+
+    std::stack<int> s;
+    while(start1 != nullptr) {
+        if(start2 == nullptr) {
+            if(s.top() != start1->data) {
+                return false;
+            }
+            s.pop();
+            start1 = start1->next;
+        } else {
+            s.push(start1->data);
+            start2 = start2->next;
+            if(start2 != nullptr) {
+                start2 = start2->next;
+                start1 = start1->next;
+            }
+        }
+    }
+    return true;
 }

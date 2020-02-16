@@ -15,6 +15,8 @@ public:
     void devideAt(int d);
     void showNode();
     void clean();
+    int length();
+    bool isBatch();
 };
 
 Node* addNode(Node *n1, Node *n2);
