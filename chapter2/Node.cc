@@ -35,6 +35,23 @@ void Node::deleteDeplication() {
     }
 }
 
+void Node::deleteDeplication2() {
+    Node *i = this;
+    while(i != nullptr) {
+        Node *bef = i;
+        Node *j = i->next;
+        while(j != nullptr) {
+            if(i->data == j->data) {
+                bef->next = j->next;
+            } else {
+                bef = j;
+            }
+            j = j->next;
+        }
+        i = i->next;
+    }
+}
+
 Node* Node::deleteNode(int d) {
     return nullptr;
 }
