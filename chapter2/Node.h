@@ -10,6 +10,7 @@ public:
     void appendToTail(int d);
     void deleteDeplication();
     void deleteDeplication2();
+    Node* ithFromTail(int target, int &i);
     Node* deleteNode(int d);
     void showNode();
     void clean();

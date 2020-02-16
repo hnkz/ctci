@@ -52,6 +52,24 @@ void Node::deleteDeplication2() {
     }
 }
 
+Node* Node::ithFromTail(int target, int &i) {
+    Node *n = nullptr;
+    if(next == nullptr) {
+        i = 0;
+    } else {
+        n = next->ithFromTail(target, i);
+        i += 1;
+    }
+
+    if(n != nullptr) {
+        return n;
+    } else if(target == i) {
+        return this;
+    } else {
+        return nullptr;
+    }
+}
+
 Node* Node::deleteNode(int d) {
     return nullptr;
 }
