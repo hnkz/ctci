@@ -1,10 +1,10 @@
 #include <memory>
 
 class Node {
+public:
     int data;
     Node *next;
 
-public:
     Node(int d): data{d}, next{nullptr}{};
     ~Node();
     void appendToTail(int d);
@@ -16,3 +16,5 @@ public:
     void showNode();
     void clean();
 };
+
+Node* addNode(Node *n1, Node *n2);

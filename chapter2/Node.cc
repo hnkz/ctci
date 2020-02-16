@@ -113,3 +113,37 @@ void Node::clean() {
     if(next != nullptr)
         delete next;
 }
+
+
+Node* addNode(Node *n1, Node *n2) {
+    Node *result = nullptr;
+
+    Node *node1 = n1;
+    Node *node2 = n2;
+    int c = 0;
+    while(node1 != nullptr || node2 != nullptr) {
+        int sc = 0;
+        if(node1 != nullptr) {
+            sc += node1->data;
+            node1 = node1->next;
+        }
+        if(node2 != nullptr) {
+            sc += node2->data;
+            node2 = node2->next;
+        }
+
+        int s = sc % 10 + c;
+        c = sc / 10;
+
+        if(result == nullptr) {
+            result = new Node(s);
+        } else {
+            result->appendToTail(s);
+        }
+    }
+    if(c != 0) {
+        result->appendToTail(c);
+    }
+
+    return result;
+}
