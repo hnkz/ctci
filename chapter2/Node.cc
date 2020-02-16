@@ -80,6 +80,25 @@ bool Node::deleteNode() {
     }
 }
 
+void Node::devideAt(int d) {
+    Node *p = this;
+
+    while(p->data < d) {
+        p = p->next;
+    }
+
+    Node *node = p->next;
+    while(node != nullptr) {
+        if(node->data < d) {
+            int tmp = p->data;
+            p->data = node->data;
+            node->data = tmp;
+            p = p->next;
+        }
+        node = node->next;
+    }
+}
+
 void Node::showNode() {
     std::cout << data ;
     if(next == nullptr) {
