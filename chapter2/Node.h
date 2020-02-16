@@ -11,7 +11,7 @@ public:
     void deleteDeplication();
     void deleteDeplication2();
     Node* ithFromTail(int target, int &i);
-    Node* deleteNode(int d);
+    bool deleteNode();
     void showNode();
     void clean();
 };

@@ -70,8 +70,14 @@ Node* Node::ithFromTail(int target, int &i) {
     }
 }
 
-Node* Node::deleteNode(int d) {
-    return nullptr;
+bool Node::deleteNode() {
+    if(next == nullptr) {
+        return false;
+    } else {
+        data = next->data;
+        next = next->next;
+        return true;
+    }
 }
 
 void Node::showNode() {
